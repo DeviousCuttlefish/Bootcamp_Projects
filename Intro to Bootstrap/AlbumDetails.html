@@ -1,33 +1,109 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Music Store</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
 
-    <!-- Bootstrap CSS -->
-    <link href="styles/bootstrap.min.css" rel="stylesheet" >
-  </head>
-  <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Music Store</h1>
-        </div>
+<head>
+  <title>Music Store</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <!-- Bootstrap CSS -->
+  <link href="styles/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">Music Store</h1>
     </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"><img src="./img/Album Artwork.png" alt="Cover Art" class="d-none d-md-block"></div>
+      <div class="col-md-8">
+        <h3 class="text-center">Album Title</h3>
+        <h3 class="text-center">Artist</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quod tempore dolores, quas est facere
+          voluptate ullam cupiditate, inventore ducimus nam. Recusandae, delectus, unde aut assumenda voluptate
+          consectetur cupiditate cumque, ducimus velit beatae iure sequi. Adipisci, optio sunt amet impedit vel in eos
+          reiciendis alias neque, laborum, magni ad doloremque? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Nisi, quod tempore dolores, quas est facere voluptate ullam cupiditate, inventore ducimus nam. Recusandae,
+          delectus, unde aut assumenda voluptate consectetur cupiditate cumque, ducimus velit beatae iure sequi.
+          Adipisci, optio sunt amet impedit vel in eos reiciendis alias neque, laborum, magni ad doloremque?</p>
+      </div>
+    </div>
+
+
     <div class="container">
-        <div class="row">
-          <div class="col-md-4"><img src="./img/Album Artwork.png" alt="Cover Art"></div>
-          <div class="col-md-8">
-            <h3>Album Title</h3>
-            <h3>Artist</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quod tempore dolores, quas est facere voluptate ullam cupiditate, inventore ducimus nam. Recusandae, delectus, unde aut assumenda voluptate consectetur cupiditate cumque, ducimus velit beatae iure sequi. Adipisci, optio sunt amet impedit vel in eos reiciendis alias neque, laborum, magni ad doloremque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quod tempore dolores, quas est facere voluptate ullam cupiditate, inventore ducimus nam. Recusandae, delectus, unde aut assumenda voluptate consectetur cupiditate cumque, ducimus velit beatae iure sequi. Adipisci, optio sunt amet impedit vel in eos reiciendis alias neque, laborum, magni ad doloremque?</p>
+      <div class="row">
+        <!-- Had to use new Command (Order) because I'm using Bootstrap 4-->
+        <div class="col-xs-12 col-md-6 order-md-2" id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne">
+                  Track 01 - 3:45
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Track 02 - 2:58
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  Track 03 - 5:01
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
           </div>
         </div>
+        <!-- Had to use new Command (Order) because I'm using Bootstrap 4-->
+        <div class="col-xs-12 col-md-6 order-md-1">
+          <h3 class="text-center">Expert Review</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quod tempore dolores, quas est facere
+            voluptate ullam cupiditate, inventore ducimus nam. Recusandae, delectus, unde aut assumenda voluptate
+            consectetur cupiditate cumque, ducimus velit beatae iure sequi. Adipisci, optio sunt amet impedit vel in eos
+            reiciendis alias neque, laborum, magni ad doloremque? Lorem ipsum dolor sit amet consectetur adipisicing
+            elit.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./scripts/jquery-3.4.1.min.js"></script>
     <script src="./scripts/bootstrap.min.js"></script>
-    
 
-  </body>
+
+</body>
+
 </html>
