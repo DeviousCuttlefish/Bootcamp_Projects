@@ -1,0 +1,106 @@
+<html> 
+
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  <style>
+        body {
+            font-family: Verdana;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: darkblue;
+        }
+
+        .rating-circle {
+            height: 2em;
+            width: 2em;
+            border: .1em solid black;
+            border-radius: 1.1em;
+            display: inline-block;
+            margin: 0;
+            padding: .1em;
+        }
+
+        .rating-hover {
+            background-color: yellow;
+        }
+
+        .rating-chosen {
+            background-color: green;
+        }
+    </style> </head> 
+
+<body> <h1>Contoso Web Developer Conference</h1>  
+    <h2>Finding elements using jQuery</h2>  
+    <div>This session is about
+        identifying elements using jQuery methods and selectors.</div>  
+    <h3>Rate this session</h3>  <div id="rating-container" max-value="5">
+    </div>
+
+    <div>   <label for="max-value">Enter max value:</label>   <input type="text" id="max-value" />   <button
+            type="button" id="update-max-value">Update max value</button> </div>
+            <button type="button" id="save-rating">Save rating</button>
+            <div id="output"></div>
+     
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+     
+    <script>         // your answer would go here 
+        $(function () {
+            var container = $('#rating-container');
+            var chosen = null;
+            var value = 0;
+
+            buildRatings();
+
+            $('#update-max-value').click(function () {
+                let maxValue = $('#max-value').val();
+                container.attr('max-value', maxValue);
+                value = 0;
+                buildRatings();
+            })
+
+            $('#save-rating').click(function () {
+                var data = {
+                    value: value,
+                    maxValue: container.attr('max-value')
+                }
+
+                $.post('https://jquery-edx.azurewebsites.net/api/Rating', data)
+                    .done(function (data) {
+                        $('#output').text(data.message);
+                    });
+            });
+
+            container.on({
+                mouseenter: function () {
+                    addClassTo(this, 'rating-hover');
+                },
+                mouseleave: function () {
+                    addClassTo(chosen, 'rating-chosen');
+                },
+                click: function () {
+                    chosen = this;
+                    value = $('.rating-circle').index(this) + 1;
+                    addClassTo(chosen, 'rating-chosen');
+                }
+
+            }, '.rating-circle');
+
+            function buildRatings() {
+                let maxValue = container.attr('max-value');
+                let html = '<div class="rating-circle"></div>'.repeat(maxValue);
+                container.empty().append(html);
+            }
+
+            function addClassTo(elem, cssClass) {
+                $('.rating-circle').attr('class', 'rating-circle');
+                $(elem).prevAll().andSelf().attr('class', 'rating-circle ' + cssClass);
+            }
+        });
+
+
+    </script> 
+</body> 
+
+</html>
