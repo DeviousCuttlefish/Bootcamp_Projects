@@ -1,5 +1,3 @@
-// Initial Search Buttons
-
 
 var topics = ["Memes", "Entertainment", "Sports"];
 function addSearchBtns() {
@@ -14,7 +12,7 @@ addSearchBtns();
 
 $(document).on("click", ".btn", function () {
     $("#results").html("");
-    // Beginning API call
+
     var queryURL = "https://api.giphy.com/v1/gifs/search?";
     var query;
     var params = {
@@ -50,16 +48,14 @@ $(document).on("click", ".btn", function () {
                 var gifObj = r.data[i];
                 var gif = gifObj.images;
 
-                // Image builder object
                 $img.attr({
-                    // "width": "200px",
                     src: gif.fixed_height_still.url,
                     "data-animate": gif.fixed_height.url,
                     "data-still": gif.fixed_height_still.url,
                     "data-state": "still",
                     class: "gif"
                 });
-                // $div.attr("id", "gif-" + i);
+
                 $div.addClass("gif-box");
                 $rating.text("Rating: " + gifObj.rating);
                 $div.append($img, $rating);
